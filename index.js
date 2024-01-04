@@ -3,6 +3,7 @@ let horaAgora
 let horaCalc
 let vetHora = []
 const relogio = document.getElementById('hora')
+const predio = document.getElementById('predio')
 
 function getTime(){
     fetch("http://worldtimeapi.org/api/timezone/America/Sao_Paulo")
@@ -29,6 +30,14 @@ function converteHora(){
     horaCalc = horaAgora.replace(/:/g, '')
     for(let i = 0; i < 6; i++) {
         vetHora[i] = horaCalc.slice(i, i+1)
+    }
+    attImg()
+}
+
+function attImg(){
+    if (vetHora[0] >= 1 && vetHora[1] > 8){
+        predio.src = 'img/predio_noite.png'
+        document.body.style.backgroundColor = 'rgb(3, 11, 56)';
     }
 }
 
@@ -61,12 +70,6 @@ function attHora(){
     }
 
     relogio.innerHTML = vetHora[0] + vetHora[1] + ':' + vetHora[2] + vetHora[3] + ':' + vetHora[4] + vetHora[5]
-
 }
 
-function attRelogio(){
-    relogio.innerHTML = horaAgora
-    attHora()
-}
-
-setInterval(attRelogio, 1000)
+setInterval(attHora, 1000)
