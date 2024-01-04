@@ -4,7 +4,7 @@ let horaCalc
 let vetHora = []
 const relogio = document.getElementById('hora')
 
-function getTime(){
+/*function getTime(){
     fetch("http://worldtimeapi.org/api/timezone/America/Sao_Paulo")
         .then((res) => {
             console.log(res)
@@ -20,6 +20,12 @@ function getTime(){
             converteHora()
             console.log(horaAtual)
         })
+    }*/
+
+    function getTime(){
+        horaAtual = '2024-01-04T23:59:50.635186-03:00'
+        converteHora()
+        console.log(horaAtual)
     }
 
 getTime();
